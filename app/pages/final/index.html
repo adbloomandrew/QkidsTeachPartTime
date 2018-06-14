@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qkids - Register</title>
+  <!-- Favicons -->
+  @@include('app/partials/common/favicon.html')
+  <!-- General styles -->
+  @@include('app/partials/common/styles.html')
+</head>
+<body>
+
+<div class="base-layout">
+
+  <!-- Header -->
+  <section class="header">
+    <div class="container text-center">
+      <img src="@@webRoot/images/logo.png" alt="Qkids" class="img-fluid">
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated"
+             role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 56%">56% Complete
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Header -->
+
+  <!-- Register section -->
+  <section class="register-register-section">
+    <div class="container">
+      <div class="card-block register-card">
+        <h1 class="typo-h1 text-blue text-center mb-2">Final Step: Record a short Introduction Video</h1>
+        <div class="typo-h3 text-gray typo-bold text-center">* Required</div>
+        <hr class="divider divider__gray my-3">
+        <p class="typo-h4 typo-bold text-gray mb-2">
+          To complete your application, simply record a quick 60-second video interview and include the following:
+        </p>
+        <ol class="step-list pl-3 mb-3">
+          <li class="typo-h4 mb-1 text-gray">Your First and Last Name</li>
+          <li class="typo-h4 mb-1 text-gray">The City you live in</li>
+          <li class="typo-h4 mb-1 text-gray">Your Level of education</li>
+          <li class="typo-h4 mb-1 text-gray">Describe your experience with kids or teaching in just a few sentences</li>
+          <li class="typo-h4 mb-1 text-gray">
+            After your introduction, please tell or read a short story
+            (<a href="@@webRoot/mouse/" class="link-violet">here’s a sample to read</a>)
+          </li>
+        </ol>
+        <hr class="divider divider__gray mt-3 mb-5">
+        <p class="typo-h4 text-gray mb-3">
+          If you're looking for inspiration,
+          <a href="https://www.youtube.com/watch?v=nOgrYxcBTyw" class="link-violet" target="_blank"
+             rel="noopener noreferrer">click here to see a succesful demo video</a>.<br>
+          Have you already created a video? Simply upload it to youtube and paste the url into the field below.
+        </p>
+        <form action="">
+
+
+
+          <!-- todo video recording plugin -->
+
+
+
+          <p class="typo-paragraph text-gray mb-3">Created a Video already? Paste the URL below.</p>
+          <div class="mb-3">
+            <input type="url" class="form-input mb-1" name="video-url" id="video-url"
+                   placeholder="http://youtube.com/My-Video-URL"
+                   title="http://youtube.com/My-Video-URL">
+            <div class="file-note text-gray">
+              copy and paste your 1-minute Youtube video URL, make sure your video is set for sharing
+            </div>
+          </div>
+          <div class="mb-5">
+            <label class="checkbox-label typo-h2 typo-bold text-gray">
+              <input type="checkbox" class="d-none"
+                     value="Yes, I have completed the application in full" name="complete-application">
+              <span class="checkmark"></span>
+              Yes, I have completed the application in full
+            </label>
+          </div>
+          <div class="d-flex align-items-start justify-content-between flex-wrap">
+            <a href="@@webRoot/register/" class="control-gray-btn mr-4 mb-3">previous</a>
+            <button type="submit" class="control-pink-btn submit-btn">Submit application</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- End Register section -->
+
+
+  <!-- Footer section -->
+  @@include('app/partials/common/footer.html')
+</div>
+
+<!-- General styles-->
+@@include('app/partials/common/scripts.html')
+
+<script>
+  $(document).ready(function () {
+
+    // Check all script
+    $("input[type='checkbox'][data-checkall]").change(function () {
+      const name = $(this).attr('name');
+      if (name) {
+        const checkboxGroup = $('input[type="checkbox"][name=' + name + ']');
+        checkboxGroup.prop('checked', $(this).prop("checked"));
+      }
+    });
+    // End Check all scrip
+
+    $("input[type='file']").change(function () {
+      var filename = $(this).val().split('\\').pop();
+      console.log(filename)
+      $('#js-file-name').text(filename ? filename : 'No file chosen')
+    })
+
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Opportunity is not currently available</title>
+  <!-- Favicons -->
+  @@include('app/partials/common/favicon.html')
+  <!-- General styles -->
+  @@include('app/partials/common/styles.html')
+</head>
+<body>
+
+<div class="base-layout">
+
+  <!-- Header -->
+  <section class="header">
+    <div class="container text-center">
+      <img src="@@webRoot/images/SAYAbc-logo.png" alt="SAYAbc" class="img-fluid">
+    </div>
+  </section>
+  <!-- End Header -->
+
+  <!-- Register section -->
+  <section class="opportunity-unavailable-section">
+    <div class="container">
+      <div class="card-block register-card">
+        <h1 class="typo-h1 text-blue text-center mb-2">Sorry, this opportunity is not currently available.</h1>
+        <hr class="divider divider__gray my-3">
+        <p class="typo-h4 typo-bold text-gray mb-2">
+          Want to teach english online?
+          <a class="js-append-link link-violet" href="">
+            SayABC is hiring, earn up to $21 USD/hour. Please follow this link to Apply
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- End Register section -->
+
+</div>
+
+<!-- Append URL to link -->
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var query = window.location.search.substring(1);
+    if (query !== "") {
+      var links = document.getElementsByClassName("js-append-link");
+      Array.prototype.forEach.call(links, function(link) {
+        link.href = "http://trk.adbloom.co/aff_c?offer_id=151&source=archive&aff_id=" + query.split("=")[1];
+      });
+    }
+  });
+</script>
+<!-- End Append URL to link -->
+
+</body>
+</html>
